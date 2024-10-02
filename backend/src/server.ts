@@ -1,8 +1,6 @@
 import Fastify from "fastify";
 import cors from "@fastify/cors"
 import { routes } from "./routes";
-import { error } from "console";
-import { request } from "http";
 
 const app = Fastify({ logger: true})
 

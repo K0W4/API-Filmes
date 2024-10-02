@@ -6,7 +6,7 @@ class ListCustomersService
     {
         const customers = await prismaClient.customer.findMany()
 
-        return customers
+        return customers;
     }
 }
 
