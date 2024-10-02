@@ -13,13 +13,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Customer {
+model Movie {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
-  email String
-  status Boolean
-  ceated_at DateTime? @default(now())
-  updated_at DateTime? @default(now())
+  evaluation String
+  rating String
 
   @@map("list")
 }

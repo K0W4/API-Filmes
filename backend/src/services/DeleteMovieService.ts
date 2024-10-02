@@ -1,35 +1,35 @@
 import prismaClient from "../prisma";
 
-interface DeleteCustomerProps
+interface DeleteMovieProps
 {
     id: string;
 }
 
-class DeleteCustomerService
+class DeleteMovieService
 {
-    async execute({ id }: DeleteCustomerProps)
+    async execute({ id }: DeleteMovieProps)
     {
         if (!id)
         {
             throw new Error("Soliciatação inválida")
         }
 
-        const findCustomer = await prismaClient.customer.findFirst({
+        const findMovie = await prismaClient.movie.findFirst({
             where:
             {
                 id: id
             }
         })
 
-        if(!findCustomer)
+        if(!findMovie)
         {
-            throw new Error("Cliente não existe!")
+            throw new Error("Filme não existe!")
         }
 
-        await prismaClient.customer.delete({
+        await prismaClient.movie.delete({
             where:
             {
-                id: findCustomer.id
+                id: findMovie.id
             }
         })
 
@@ -37,4 +37,4 @@ class DeleteCustomerService
     }
 }
 
-export { DeleteCustomerService }
+export { DeleteMovieService }

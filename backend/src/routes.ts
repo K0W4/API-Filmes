@@ -1,19 +1,19 @@
-import { FastifyInstance, FastifyPluginOptions, FastifyRequest, FastifyReply } from "fastify"
-import { CreatCustomerController } from "./controllers/CreatCustomerController"
-import { ListCustomersController } from "./controllers/ListCustomersController"
-import { DeleteCustomerControler } from "./controllers/DeleteCustomerControler"
+import { FastifyInstance, FastifyRequest, FastifyReply } from "fastify"
+import { CreatMovieController } from "./controllers/CreatMovieController"
+import { ListMoviesController } from "./controllers/ListMoviesController"
+import { DeleteMovieControler } from "./controllers/DeleteMovieControler"
 
-export async function routes(fastify: FastifyInstance, options: FastifyPluginOptions)
+export async function routes(fastify: FastifyInstance)
 {
-    fastify.post("/customer", async (request: FastifyRequest, reply: FastifyReply) => {
-        return new CreatCustomerController().handle(request, reply)
+    fastify.post("/movie", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new CreatMovieController().handle(request, reply)
     })
 
-    fastify.get("/customers", async (request: FastifyRequest, reply: FastifyReply) => {
-        return new ListCustomersController().handle(request, reply)
+    fastify.get("/movies", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new ListMoviesController().handle(request, reply)
     })
 
-    fastify.delete("/customer", async (request: FastifyRequest, reply: FastifyReply) => {
-        return new DeleteCustomerControler().handle(request, reply)
+    fastify.delete("/movie", async (request: FastifyRequest, reply: FastifyReply) => {
+        return new DeleteMovieControler().handle(request, reply)
     })
 }
